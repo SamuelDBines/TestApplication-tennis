@@ -43,7 +43,7 @@ router.get('/info', requireHTTPS,  (req, res) => {
     console.log(req.query)
     res.sendFile(path.join(__dirname, directory, 'index.html'));
 });
-router.get('/data', requireHTTPS, (req, res) => {
+router.get('/data', (req, res) => {
     console.log("Sent")
     const { name } = req.query
    console.log(data[name])
