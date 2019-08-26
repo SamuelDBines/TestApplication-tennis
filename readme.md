@@ -38,3 +38,8 @@ npm install --save react-scrollable-anchor
 ```
 npm install react-router-dom
 ```
+
+### Generated SSH key
+```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
