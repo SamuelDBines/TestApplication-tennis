@@ -3,8 +3,7 @@ const app = express();
 const path = require('path');
 var fs = require("fs");
 const https = require('https');
-const fs = require('fs');
-
+const http = require('http');
 var key = fs.readFileSync('./server.key');
 var cert = fs.readFileSync('./server.cert');
 var options = {
@@ -12,10 +11,7 @@ var options = {
   cert: cert
 };
 const port = 8000;
-app = express()
-app.get('/', (req, res) => {
-   res.send('Now using https..');
-});
+
 
 
 let data;
@@ -42,12 +38,12 @@ router.get('/', (req, res) => {
     console.log("Sent")
     res.sendFile(path.join(__dirname, directory, 'index.html'));
 });
-router.get('/info', (req, res) => {
+router.get('/info', requireHTTPS,  (req, res) => {
     console.log("Sent")
     console.log(req.query)
     res.sendFile(path.join(__dirname, directory, 'index.html'));
 });
-router.get('/data', (req, res) => {
+router.get('/data', requireHTTPS, (req, res) => {
     console.log("Sent")
     const { name } = req.query
    console.log(data[name])
@@ -63,6 +59,10 @@ function requireHTTPS(req, res, next) {
 app.use(requireHTTPS);
 app.use('/', router);
 var server = https.createServer(options, app);
+var httpServer = http.createServer(app);
+httpServer.listen(8080, () => {
+    console.log("HTTP server starting on port : 8080")
+})
 server.listen(port, () => {
   console.log("server starting on port : " + port)
 });
