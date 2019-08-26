@@ -54,6 +54,11 @@ body {
         font-size: small;
     }
   }
+  @media only screen and (max-width: 800px) {
+    .card-content {
+        padding:5px !important;
+    }
+  }
   .removeMargin {
       margin-left:0rem !important;
       margin-right:0rem !important;

@@ -32,6 +32,7 @@ npm i --save-dev babel-core babel-loader@7 babel-preset-react babel-preset-env h
 npm install react-materialize
 npm install --save-dev css-loader style-loader
 npm install --save react-scrollable-anchor
+npm install react-getscreen
 ```
 ### Router
 1. npm install react-router-dom
@@ -57,4 +58,5 @@ docker run -p 8080:8080 --network="host" -d sbines/personalwebsite
 ### Generate Certificates
 ```
  openssl req -nodes -new -x509 -keyout server.key -out server.cert
+ sudo certbot --nginx -d samuelBines.com -d www.samuelBines.com
 ```

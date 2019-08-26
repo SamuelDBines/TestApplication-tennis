@@ -3,12 +3,30 @@ import { Row, Col, Card , CardTitle} from 'react-materialize'
 import ListItem from './ListItem';
 
 class PenPic extends Component {
-    text() {
-        return "Hello world";
+    constructor(props) {
+        super(props);
+        this.state = {
+            screenSize : window.innerWidth, 
+            fullWidth : ""
+        }
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+        this.cardTitle = this.cardTitle.bind(this)
     }
+    componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+    }
+    updateWindowDimensions() {
+        this.setState({screenSize : window.innerWidth })
+        if(this.state.screenSize < 500)
+            this.state.fullWidth = false
+        else 
+            this.state.fullWidth = true
+    } 
     cardTitle() {
+        const totalWidth = this.state.fullWidth ? "100%" : "50%";
         return (
-            <CardTitle image={this.props.img} style={{ width:"50%" }} >
+            <CardTitle image={this.props.img} style={{ width:{totalWidth} }} >
                 <h5 className="penPicHeader"> About </h5>
                 <hr />
                 <p className="penPicText">
@@ -19,13 +37,14 @@ class PenPic extends Component {
         )
     }
     render() {
+        let mobile = this.state.fullWidth;
         return (
             <Row id={this.props.id}>
             <Col m={12} s={12}>
-            <Card style={{ backgroundColor:"black" }} horizontal header={this.cardTitle()} >
+            <Card style={{ backgroundColor:"black" }}  horizontal={mobile}  header={this.cardTitle()}>
                 <h5 className="penPicHeader">Strategy / Technology Consultant</h5>
                 <Row >
-                    <Col  m={6} s={12}>
+                    <Col  m={6} s={6}>
                     <Row className="removeMargin">
                     <h6>Key Skills</h6>
                     <hr />
@@ -51,7 +70,7 @@ class PenPic extends Component {
                     
                     </Row>
                     </Col>
-                    <Col  m={6} s={12}>
+                    <Col  m={6} s={6}>
                     <Row className="removeMargin">
                
                     <h6>Projects</h6>

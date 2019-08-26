@@ -33,7 +33,7 @@ class Home extends Component {
                
                 <Parallax image={<img src="images/london.jpeg" />} />
                 <Container>
-                    <ScrollableAnchor id={'projects'}>
+                    <ScrollableAnchor id={'technology'}>
                         <SquareImageComponent images={projectImages} />
                     </ScrollableAnchor>
                 </Container>

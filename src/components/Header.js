@@ -38,8 +38,8 @@ class Header extends Component {
         return (
             <div className="section black" >
                  <Navbar brand={logo} centerLogo fixed alignLinks="center">
-                    <NavItem href="/#projects">
-                        Projects
+                    <NavItem href="/#technology">
+                        Technology
                     </NavItem>
                     <NavItem href="/#profile">
                         Profile
