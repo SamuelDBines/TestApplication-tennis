@@ -23,17 +23,18 @@ class Header extends Component {
         
     }
     render() {
+        const mainPage = window.location.pathname === "/";
         const scrolling= this.state.scrolling;
         let logo ;
         let centerLogo ;
-        if(scrolling)  {
+        if(scrolling && mainPage)  {
             logo =  <a href="/"> Samuel Bines </a>
             centerLogo = <a></a>
         } else {
             centerLogo =  <a href="/"> <img src="images/profile-ibm.jpg" width="100px;"/>Samuel Bines  </a>
-          
             logo = <a></a>
         }
+        
         return (
             <div className="section black" >
                  <Navbar brand={logo} centerLogo fixed alignLinks="center">

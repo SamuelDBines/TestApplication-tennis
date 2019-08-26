@@ -2,6 +2,22 @@ const express = require('express');
 const app = express();
 const path = require('path');
 var fs = require("fs");
+const https = require('https');
+const fs = require('fs');
+
+var key = fs.readFileSync('./server.key');
+var cert = fs.readFileSync('./server.cert');
+var options = {
+  key: key,
+  cert: cert
+};
+const port = 8000;
+app = express()
+app.get('/', (req, res) => {
+   res.send('Now using https..');
+});
+
+
 let data;
 
 try {
@@ -37,5 +53,16 @@ router.get('/data', (req, res) => {
    console.log(data[name])
     res.json( data[name]);
 });
+function requireHTTPS(req, res, next) {
+    // The 'x-forwarded-proto' check is for Heroku
+    if (!req.secure && req.get('x-forwarded-proto') !== 'https' && process.env.NODE_ENV !== "development") {
+      return res.redirect('https://' + req.get('host') + req.url);
+    }
+    next();
+  }
+app.use(requireHTTPS);
 app.use('/', router);
-app.listen(8080, () => console.log('Gator app listening on port 3000!'));
+var server = https.createServer(options, app);
+server.listen(port, () => {
+  console.log("server starting on port : " + port)
+});

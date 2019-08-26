@@ -43,3 +43,18 @@ npm install react-router-dom
 ```
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
+
+### Build Docker
+```
+docker build -t sbines/personalwebsite .
+```
+### Run Container
+
+```
+docker run -p 8080:8080 --network="host" -d sbines/personalwebsite
+```
+
+### Generate Certificates
+```
+ openssl req -nodes -new -x509 -keyout server.key -out server.cert
+```

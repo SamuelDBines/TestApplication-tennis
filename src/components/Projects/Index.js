@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Row, Col, CardPanel , Container} from 'react-materialize'
+import { Container} from 'react-materialize'
 const API = "/data"
 
 class Projects extends Component {
@@ -28,18 +28,12 @@ class Projects extends Component {
         let data =  this.state.hits;
         
         return (
-            <Row>
-                <Container>
-                <Col  s={12}>
-                    <CardPanel className="black">
-                    
-                     <p  className="justify white-text">
-                        {data}
-                     </p>
-                    </CardPanel>
-                </Col>
-                </Container>
-            </Row>
+            <Container>
+                
+                <p  className="justify white-text">
+                {data}
+                </p>
+            </Container>
         );
     }
 }
