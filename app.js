@@ -56,7 +56,6 @@ function requireHTTPS(req, res, next) {
     }
     next();
   }
-app.use(requireHTTPS);
 app.use('/', router);
 var server = https.createServer(options, app);
 var httpServer = http.createServer(app);
