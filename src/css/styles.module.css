@@ -1,68 +1,70 @@
-nav, footer {
-    background-color:black !important;
+nav,
+footer {
+  background-color: #2a1843 !important;
 }
 nav {
-    position:sticky;
-    top:0;
-    z-index:5;
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
 .p0 {
-    padding:0rem !important;
+  padding: 0rem !important;
 }
 .row {
-    margin-bottom:0rem;
+  margin-bottom: 0rem;
 }
 body {
-    background-color:black;
-    color:white !important;
+  /* background-color: #1b0a0e;
+  color: white !important; */
 }
+
 .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background:#000000c2;
-    padding:0.5rem;
-    transform: translate(-50%, -50%);
-  }
-  .overlay-container {
-    position: relative;
-    text-align: center;
-    color: white ;
-  }
-  a {
-      color:rgba(255, 255, 255);
-  }
-  .imageButton {
-    height: 230px;
-    background-color: white;
-    object-fit: scale-down;
-    background-size:cover;
-  }
-  .penPicHeader {
-    margin: 0rem;
-    margin-bottom: 0.5rem;
-  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #2a1843;
+  padding: 0.5rem;
+  transform: translate(-50%, -50%);
+}
+.overlay-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+a {
+  color: rgba(255, 255, 255);
+}
+.imageButton {
+  height: 230px;
+  background-color: white;
+  object-fit: scale-down;
+  background-size: cover;
+}
+.penPicHeader {
+  margin: 0rem;
+  margin-bottom: 0.5rem;
+}
+.penPicText {
+  font-size: xx-small;
+  text-align: justify;
+}
+.justify {
+  text-align: justify;
+}
+@media only screen and (min-width: 800px) {
   .penPicText {
-    font-size: xx-small;
-    text-align: justify;
+    font-size: small;
   }
-  .justify {
-      text-align: justify;
+}
+@media only screen and (max-width: 800px) {
+  .card-content {
+    padding: 5px !important;
   }
-  @media only screen and (min-width: 800px) {
-    .penPicText {
-        font-size: small;
-    }
-  }
-  @media only screen and (max-width: 800px) {
-    .card-content {
-        padding:5px !important;
-    }
-  }
-  .removeMargin {
-      margin-left:0rem !important;
-      margin-right:0rem !important;
-  }
+}
+.removeMargin {
+  margin-left: 0rem !important;
+  margin-right: 0rem !important;
+}
 .card-title {
-    position:relative !important;
+  position: relative !important;
 }

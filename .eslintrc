@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "space-before-blocks": 2,
+    "no-useless-call": ["error", "always"],
+    "block-spacing": 2,
+    "no-console": "error"
+  }
+}
