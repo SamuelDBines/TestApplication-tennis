@@ -3,18 +3,22 @@ const path = require("path");
 var fs = require("fs");
 const http = require("http");
 const cors = require("cors");
-const PORT = 8080;
+const PORT = 9000;
 
 const app = express();
 
 const router = express.Router();
-let directory = "dist";
 
-app.use("/", express.static("dist"));
+app.use(express.json());
 app.use(cors());
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+app.use("/dist", express.static("dist"));
 
 router.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, directory, "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 router.get("/csv/:file", (req, res) => {
@@ -36,5 +40,5 @@ app.use("/", router);
 const httpServer = http.createServer(app);
 
 httpServer.listen(PORT, () => {
-  console.log("HTTP server starting on port : 8080");
+  console.log("HTTP server starting on port : http://localhost:" + PORT);
 });

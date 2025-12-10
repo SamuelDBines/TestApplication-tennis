@@ -1,19 +1,81 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import { TableRow } from "./index";
-import { Table } from "react-materialize";
 
-const mapStateToProps = (state) => ({
-  uploadData: state.featuredReducer,
-});
+const TableRow = ({
+  date,
+  ranking,
+  playerName,
+  playerID,
+  points,
+  tourniments,
+  fullData,
+  searchData,
+}) => {
+  const handleChange = (key, value) => {
+    const onePlayer = key === 2 ? true : false;
+    const data = fullData.filter((row) => {
+      return value.includes(row[key]);
+    });
+    searchData(data, onePlayer);
+  };
+  const formatDate = (date) => {
+    var year = date.substring(0, 4);
+    var month = date.substring(4, 6);
+    var day = date.substring(6, 8);
 
-const Table = connect(
-  mapStateToProps,
-  null
-)(({ uploadData }) => {
+    return `${day}-${month}-${year}`;
+  };
+  return (
+    <tr>
+      <th
+        style={{ cursor: "pointer" }}
+        onClick={() => handleChange(0, date)}
+        data-field="date"
+      >
+        {formatDate(date)}
+      </th>
+      <th
+        style={{ cursor: "pointer" }}
+        onClick={() => handleChange(2, playerID)}
+        data-field="playerID"
+      >
+        {playerID}
+      </th>
+      <th
+        style={{ cursor: "pointer" }}
+        onClick={() => handleChange(2, playerID)}
+        data-field="playerID"
+      >
+        {playerName}
+      </th>
+      <th
+        style={{ cursor: "pointer" }}
+        onClick={() => handleChange(1, ranking)}
+        data-field="ranking"
+      >
+        {ranking}
+      </th>
+      <th
+        style={{ cursor: "pointer" }}
+        onClick={() => handleChange(3, points)}
+        data-field="points"
+      >
+        {points}
+      </th>
+      <th
+        style={{ cursor: "pointer" }}
+        onClick={() => handleChange(4, tourniments)}
+        data-field="tourniments"
+      >
+        {tourniments}
+      </th>
+    </tr>
+  );
+};
+
+const Table = ({ uploadData }) => {
   const { data, limit, playerList, fullData } = uploadData;
   return (
-    <Table>
+    <table>
       <thead>
         <tr>
           <th data-field="date">Date</th>
@@ -38,8 +100,8 @@ const Table = connect(
           />
         ))}
       </tbody>
-    </Table>
+    </table>
   );
-});
+};
 
 export default Table;

@@ -1,17 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { StyledCard } from "./Canvas/styles";
-import { Loading } from "./index";
-const mapStateToProps = (state) => ({
-  uploadData: state.featuredReducer,
-});
+import React from "react";
+import { Card } from "react-materialize";
+import { Loading } from "./Loading";
 
-const Canvas = connect(
-  mapStateToProps,
-  null
-)(({ uploadData, children }) => {
+const Canvas = ({ uploadData, children }) => {
   return (
-    <StyledCard textClassName="white-text">
+    <Card className="white-text canvasCard">
       {!uploadData.data ? (
         <div>
           <p> Press start to begin </p>
@@ -20,7 +13,8 @@ const Canvas = connect(
       ) : (
         children
       )}
-    </StyledCard>
+    </Card>
   );
-});
+};
+
 export default Canvas;

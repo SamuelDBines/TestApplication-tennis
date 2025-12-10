@@ -1,25 +1,12 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
 import ReactFileReader from "react-file-reader";
-import { Loading } from "./index";
-import { uploadAction } from "../actions/index";
-const mapDispatchToProps = {
-  uploadAction,
-};
+import Loading from "./Loading";
 
-const mapStateToProps = (state) => ({
-  uploadData: state.featuredReducer,
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(({ uploadAction, uploadData }) => {
-  console.log(uploadData, uploadAction);
+const CSVReader = ({ uploadAction, uploadData }) => {
   const [state, usestate] = useState({});
 
   const handleFiles = (files) => {
-    var reader = new FileReader();
+    const reader = new FileReader();
     reader.onload = function (e) {
       usestate(reader.result);
 
@@ -40,4 +27,6 @@ export default connect(
       )}
     </ReactFileReader>
   );
-});
+};
+
+export default CSVReader;

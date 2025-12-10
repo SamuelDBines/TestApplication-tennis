@@ -8,8 +8,6 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
-import { Loading } from "./index";
-import { loadavg } from "os";
 
 const LineGraph = ({ data }) => {
   const formatDate = (date) => {

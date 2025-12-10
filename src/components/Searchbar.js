@@ -1,20 +1,7 @@
 import React from "react";
-import { connect } from "react-redux";
 import { TextInput } from "react-materialize";
-import { searchData } from "../actions/index";
 
-const mapDispatchToProps = {
-  searchData,
-};
-
-const mapStateToProps = (state) => ({
-  uploadData: state.featuredReducer,
-});
-
-const SearchBar = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(({ searchData, uploadData }) => {
+const SearchBar = ({ searchData, uploadData }) => {
   const { fullData, playerList } = uploadData;
 
   const handleChange = ({ target, key }) => {
@@ -32,6 +19,6 @@ const SearchBar = connect(
   return (
     <TextInput label="Search player id or Name" onKeyPress={handleChange} />
   );
-});
+};
 
 export default SearchBar;
