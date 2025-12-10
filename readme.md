@@ -25,15 +25,9 @@ docker run -p 8080:8080 --network="host" -d sbines/tennisApp
 
 ## Installs
 
-1. npm install react
-2. npm install react-dom
-3. npm install webpack
-4. npm install webpack-dev-server
-5. npm install webpack-cli
-6. npm install dotenv
 
 ```
-npm install react react-dom webpack webpack-dev-server webpack-cli dotenv
+pnpm i 
 ```
 
 1. npm install --sav-dev babel-core

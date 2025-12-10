@@ -6,11 +6,11 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import featuredReducer from "./reducers/index";
 import { Provider } from "react-redux";
 import thunkMiddleware from "redux-thunk";
-console.log(featuredReducer);
+
 const middleware = applyMiddleware(thunkMiddleware);
 const store = createStore(
   combineReducers({
-    featuredReducer
+    featuredReducer,
   }),
   middleware
 );
