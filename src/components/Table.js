@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { TableRow } from "../index";
+import { TableRow } from "./index";
 import { Table } from "react-materialize";
 
-const mapStateToProps = state => ({
-  uploadData: state.featuredReducer
+const mapStateToProps = (state) => ({
+  uploadData: state.featuredReducer,
 });
 
-export default connect(
+const Table = connect(
   mapStateToProps,
   null
 )(({ uploadData }) => {
@@ -41,3 +41,5 @@ export default connect(
     </Table>
   );
 });
+
+export default Table;

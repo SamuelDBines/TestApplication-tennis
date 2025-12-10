@@ -1,16 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import { searchData } from "../../actions/index";
+import { searchData } from "../actions/index";
 
 const mapDispatchToProps = {
-  searchData
+  searchData,
 };
 
-const mapStateToProps = state => ({
-  uploadData: state.featuredReducer
+const mapStateToProps = (state) => ({
+  uploadData: state.featuredReducer,
 });
 
-export default connect(
+const TableRow = connect(
   mapStateToProps,
   mapDispatchToProps
 )(
@@ -22,18 +22,18 @@ export default connect(
     points,
     tourniments,
     fullData,
-    searchData
+    searchData,
   }) => {
     const handleChange = (key, value) => {
       console.log(key, value);
       const onePlayer = key === 2 ? true : false;
-      const data = fullData.filter(row => {
+      const data = fullData.filter((row) => {
         // console.log(row[key]);
         return value.includes(row[key]);
       });
       searchData(data, onePlayer);
     };
-    const formatDate = date => {
+    const formatDate = (date) => {
       var year = date.substring(0, 4);
       var month = date.substring(4, 6);
       var day = date.substring(6, 8);
@@ -88,3 +88,5 @@ export default connect(
     );
   }
 );
+
+export default TableRow;

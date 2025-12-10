@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import ReactFileReader from "react-file-reader";
-import { Loading } from "../index";
-import { uploadAction } from "../../actions/index";
+import { Loading } from "./index";
+import { uploadAction } from "../actions/index";
 const mapDispatchToProps = {
-  uploadAction
+  uploadAction,
 };
 
-const mapStateToProps = state => ({
-  uploadData: state.featuredReducer
+const mapStateToProps = (state) => ({
+  uploadData: state.featuredReducer,
 });
 
 export default connect(
@@ -18,12 +18,14 @@ export default connect(
   console.log(uploadData, uploadAction);
   const [state, usestate] = useState({});
 
-  const handleFiles = files => {
+  const handleFiles = (files) => {
     var reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       usestate(reader.result);
 
-      const rows = reader.result.split("\n").map(results => results.split(","));
+      const rows = reader.result
+        .split("\n")
+        .map((results) => results.split(","));
       uploadAction(rows);
     };
     reader.readAsText(files[0]);

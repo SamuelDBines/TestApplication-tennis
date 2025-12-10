@@ -1,8 +1,8 @@
-export { default as Canvas } from "./Canvas/index";
-export { default as Loading } from "./Loading/index";
-export { default as CSVReader } from "./CSVReader/index";
-export { default as TableRow } from "./TableRow/index";
-export { default as Table } from "./Table/index";
-export { default as Searchbar } from "./Searchbar/index";
-export { default as LineGraph } from "./LineGraph/index";
-export { default as BarChart } from "./BarChart/index";
+export { default as Canvas } from "./Canvas";
+export { default as Loading } from "./Loading";
+export { default as CSVReader } from "./CSVReader";
+export { default as TableRow } from "./TableRow";
+export { default as Table } from "./Table";
+export { default as Searchbar } from "./Searchbar";
+export { default as LineGraph } from "./LineGraph";
+export { default as BarChart } from "./BarChart";

@@ -1,20 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { TextInput } from "react-materialize";
-import { searchData } from "../../actions/index";
-import { Canvas } from "../index";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { searchData } from "../actions/index";
 
 const mapDispatchToProps = {
-  searchData
+  searchData,
 };
 
-const mapStateToProps = state => ({
-  uploadData: state.featuredReducer
+const mapStateToProps = (state) => ({
+  uploadData: state.featuredReducer,
 });
 
-export default connect(
+const SearchBar = connect(
   mapStateToProps,
   mapDispatchToProps
 )(({ searchData, uploadData }) => {
@@ -23,11 +20,11 @@ export default connect(
   const handleChange = ({ target, key }) => {
     if (key === "Enter") {
       const { value } = target;
-      const players = Object.keys(playerList).filter(keys =>
+      const players = Object.keys(playerList).filter((keys) =>
         playerList[keys].includes(value)
       );
       const onePlayer = players.length === 1;
-      const data = fullData.filter(row => players.includes(row[2]));
+      const data = fullData.filter((row) => players.includes(row[2]));
       searchData(data, onePlayer);
     }
   };
@@ -36,3 +33,5 @@ export default connect(
     <TextInput label="Search player id or Name" onKeyPress={handleChange} />
   );
 });
+
+export default SearchBar;

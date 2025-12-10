@@ -6,22 +6,22 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
 } from "recharts";
-import { Loading } from "../index";
+import { Loading } from "./index";
 import { loadavg } from "os";
 
-export default ({ data }) => {
-  const formatDate = date => {
+const LineGraph = ({ data }) => {
+  const formatDate = (date) => {
     var year = date.substring(0, 4);
     var month = date.substring(4, 6);
     var day = date.substring(6, 8);
 
     return `${day}-${month}-${year}`;
   };
-  const format = data.map(row => ({
+  const format = data.map((row) => ({
     date: formatDate(row[0]),
-    points: row[3]
+    points: row[3],
   }));
   return (
     <LineChart
@@ -32,7 +32,7 @@ export default ({ data }) => {
         top: 5,
         right: 30,
         left: 20,
-        bottom: 5
+        bottom: 5,
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
@@ -50,3 +50,5 @@ export default ({ data }) => {
     </LineChart>
   );
 };
+
+export default LineGraph;

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { StyledCard } from "./styles";
-import { Loading } from "../index";
-const mapStateToProps = state => ({
-  uploadData: state.featuredReducer
+import { StyledCard } from "./Canvas/styles";
+import { Loading } from "./index";
+const mapStateToProps = (state) => ({
+  uploadData: state.featuredReducer,
 });
 
-export default connect(
+const Canvas = connect(
   mapStateToProps,
   null
 )(({ uploadData, children }) => {
@@ -23,3 +23,4 @@ export default connect(
     </StyledCard>
   );
 });
+export default Canvas;

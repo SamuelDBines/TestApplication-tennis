@@ -75,3 +75,18 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
  openssl req -nodes -new -x509 -keyout server.key -out server.cert
  sudo certbot --nginx -d domainName -d domainName
 ```
+
+
+### Loading types
+
+## Loading type
+
+blank
+balls
+bars
+bubbles
+cubes
+cylon
+spin
+spinningBubbles
+spokes
